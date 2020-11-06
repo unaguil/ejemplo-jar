@@ -4,6 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
@@ -32,7 +35,13 @@ public class MainWindow extends JFrame implements WindowListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		addWindowListener(this);
 		setIconImage(new ImageIcon("icons/user.jpg").getImage());
-		setTitle("User Manager");
+		
+		try (BufferedReader reader = new BufferedReader(new FileReader("res/title.txt"))) {
+			setTitle(reader.readLine());
+		} catch (IOException e) {
+			System.out.println("Error loading application title");
+		}
+		
 		setSize(640, 480);
 		
 		JList<User> usersJList = new JList<User>(usersListModel);
