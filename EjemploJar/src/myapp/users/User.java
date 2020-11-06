@@ -56,9 +56,9 @@ public class User {
 	public String toString() {
 		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-YYYY");
 		return String.format(
-			"%s, %s -> Nacimiento: %s",
-			name,
+			"%s, %s: %s",
 			surname,
+			name,
 			dateFormatter.format(birthdate)
 		);
 	}
