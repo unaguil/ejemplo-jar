@@ -34,7 +34,7 @@ public class MainWindow extends JFrame implements WindowListener {
 	public MainWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		addWindowListener(this);
-		setIconImage(new ImageIcon("icons/user.jpg").getImage());
+		setIconImage(new ImageIcon("res/icons/user.jpg").getImage());
 		
 		try (BufferedReader reader = new BufferedReader(new FileReader("res/title.txt"))) {
 			setTitle(reader.readLine());
